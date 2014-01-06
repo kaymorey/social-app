@@ -1,6 +1,10 @@
-/*global define */
-define([], function () {
-    'use strict';
+$(function() {
 
-    return '\'Allo \'Allo!';
+	var socket = io.connect('http://localhost:9001');
+
+	socket.on('tweet', function (tweet, dataStats) {
+        $('.jumbotron .lead').html(tweet.text);
+    });
+
+
 });
